@@ -1,1 +1,623 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Twitter Clone</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/03d5a1f99a.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    /* Style reset */
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500&display=swap');
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      background-color: #f5f8fa;
+      font-family: "Roboto", Arial, Geneva, Verdana, sans-serif;
+    }
+    a {
+      text-decoration: none;
+    }
+    img:hover, .full-name:hover, .user-name:hover {
+      cursor: pointer;
+    }
+    ul {
+      list-style: none;
+    }
+    .main-flex-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 20px;
+    }
+    .left-flex-container, .center-flex-container, .right-flex-container {
+      flex: 1;
+      padding: 20px;
+      background: #fff;
+      border-right: 1px solid rgb(230, 236, 240);
+    }
+    .left-flex-container {
+      max-width: 250px;
+    }
+    .right-flex-container {
+      border-left: 1px solid rgb(230, 236, 240);
+      max-width: 300px;
+    }
+    /* Left Navigation */
+    .logo i {
+      color: #1da1f2;
+      font-size: 2rem;
+      padding: 1rem;
+    }
+    .logo i:hover {
+      border-radius: 50%;
+      padding: 1rem;
+    }
+    .nav-links a {
+      font-weight: 750;
+      color: rgba(20, 23, 26, 0.93);
+      padding: 10px 15px;
+    }
+    .current-page a { color: rgba(29,161,242,1.00); }
+    .nav-links a:hover {
+      background: rgba(29, 161, 242, 0.1);
+      color: #1da1f2;
+      padding: 10px 15px;
+      border-radius: 25px;
+    }
+    .nav-items {
+      margin: 1.2rem 2rem;
+      white-space: nowrap;
+    }
+    .nav-links i {
+      padding-right: 0.5rem;
+    }
+    .nav-links {
+      margin-top: -1rem;
+    }
+    /* Trending Nav Items */
+    .nav-list {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      padding: 0.5rem 1rem;
+      border-bottom: 1px solid rgb(230, 236, 240);
+    }
+    .nav-list:hover {
+      background: rgba(0, 0, 0, 0.03);
+      cursor: pointer;
+    }
+    .nav-list a {
+      color: rgb(27, 149, 224);
+    }
+    .nav-list:last-child {
+      font-size: 1rem;
+      border-bottom: none;
+    }
+    .trend-list {
+      display: flex;
+      flex-flow: column nowrap;
+    }
+    /* Main Container */
+    .home {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      background: #fff;
+      border-bottom: 1px solid rgb(230, 236, 240);
+      color: #39393a;
+      padding: 0.5rem 1rem;
+    }
+    .home h1 {
+      font-size: 1.2rem;
+      font-weight: 800;
+    }
+    .home i {
+      font-size: 1.4rem;
+      color: rgba(29, 161, 242, 1.00);
+      background: #fff;
+      padding: 0.5rem;
+      border-radius: 50%;
+    }
+    .home i:hover {
+      background: rgba(29, 161, 242, 0.1);
+      padding: 0.5rem;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    .post-tweet {
+      background: #fff;
+      border-bottom: 10px solid rgb(230, 236, 240);
+    }
+    .btn-post {
+      display: block;
+      margin: auto;
+      width: 100%;
+      color: #fff;
+      background: #1da1f2;
+      font-size: 1rem;
+      font-weight: 700;
+      padding: 10px 5rem;
+      border-radius: 25px;
+    }
+    .form-group-1 {
+      display: flex;
+      flex-flow: row;
+      padding: 0.3rem 1rem;
+    }
+    .post-tweet img {
+      display: inline-block;
+      margin-right: 5px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      align-self: center;
+    }
+    .post-tweet input {
+      width: 90%;
+      height: 60px;
+      padding: 0.5rem 1rem;
+      border: none;
+      font-size: 1.2rem;
+      font-weight: 300;
+    }
+    .post-tweet input::placeholder {
+      color: rgba(123, 124, 126, 0.719);
+    }
+    .post-tweet input:focus {
+      outline: none;
+    }
+    .form-group-2 {
+      display: flex;
+      flex-flow: row;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 0.8rem;
+    }
+    .post-icons {
+      padding-left: 4rem;
+      color: #1da1f2;
+    }
+    .post-icons i {
+      padding-right: 10px;
+      font-size: 1.4rem;
+    }
+    .post-icons i:hover {
+      color: #1da0f2c2;
+      cursor: pointer;
+    }
+    .form-group-2 .btn {
+      border: none;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 0.7rem 1rem;
+      background: #8ed0f9;
+      color: #fff;
+      border-radius: 25px;
+      margin-right: 1rem;
+    }
+    .form-group-2 .btn:hover {
+      background: #1da1f2;
+      cursor: pointer;
+    }
+    .btn:focus {
+      outline: none;
+    }
+    .profile-box {
+      display: flex;
+      align-items: center;
+      margin-top: 20px;
+    }
+    .profile-box img {
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      margin-right: 10px;
+    }
+    .profile-link {
+      flex: 1;
+    }
+    .tweets {
+      border-bottom: 1px solid #ddd;
+      padding: 20px 0;
+      position: relative;
+    }
+    .tweets .user-pics img {
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+    }
+    .user-content-box img {
+      max-width: 100%;
+      border-radius: 10px;
+      margin-top: 10px;
+    }
+    .content-icons i {
+      margin-right: 10px;
+    }
+    /* content-icons  */
+    .content-icons i {
+      cursor: pointer;
+      color: #657786;
+    }
+    .content-icons i:hover {
+      color: #1da1f2;
+    }
+    .content-icons .fa-comment {
+      color: #1da1f2;
+    }
+    .content-icons .fa-retweet {
+      color: #17bf63;
+    }
+    .content-icons .fa-heart {
+      color: #e0245e;
+    }
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      z-index: 1;
+      right: 0;
+      top: 20px;
+    }
+    .dropdown-menu a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+    .dropdown-menu a:hover {
+      background-color: #ddd;
+    }
+    .trends ul {
+      list-style: none;
+      padding: 0;
+    }
+    .trends .nav-list {
+      padding: 10px 0;
+      border-bottom: 1px solid #ddd;
+    }
+    .trends .nav-list:last-child {
+      border-bottom: none;
+    }
+    .trend-list {
+      display: flex;
+      flex-direction: column;
+    }
+    .trend-list .main-text {
+      font-weight: bold;
+    }
+    .trend-icon {
+      cursor: pointer;
+    }
+    .search-box {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+    .search-box i {
+      margin-right: 10px;
+    }
+    .search-box input {
+      border: none;
+      outline: none;
+      width: 100%;
+    }
+    .right-footer {
+      margin-top: 20px;
+    }
+    .right-footer .footer-links a {
+      text-decoration: none;
+      color: #000;
+      margin-right: 10px;
+    }
+    .right-footer .footer-links a:hover {
+      text-decoration: underline;
+    }
+    @media (max-width: 768px) {
+      .main-flex-container {
+        flex-direction: column;
+        padding: 10px;
+      }
+      .left-flex-container {
+        display: none;
+      }
+      .right-flex-container {
+        display: none;
+      }
+      .profile-box {
+        justify-content: center;
+      }
+    }
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #fff;
+      border-top: 1px solid rgb(230, 236, 240);
+      display: flex;
+      justify-content: space-around;
+      padding: 10px 0;
+    }
+    .bottom-nav .nav-link {
+      color: #657786;
+      font-size: 1.5rem;
+    }
+    .bottom-nav .nav-link.active {
+      color: #1da1f2;
+    }
+  </style>
+</head>
+<body>
+  <div class="main-flex-container">
+    <div class="left-flex-container">
+      <div class="nav-links">
+        <!-- Sidebar -->
+        <div class="sidebar">
+          <div class="nav-links">
+            <ul>
+              <li class="nav-items"><a href="#"><i class="fab fa-twitter"></i></a></li>
+              <li class="nav-items current-page"><a href="#"><i class="fas fa-home"></i> Home</a></li>
+              <li class="nav-items"><a href="#"><i class="fas fa-hashtag"></i> Explore</a></li>
+              <li class="nav-items"><a href="#"><i class="far fa-bell"></i> Notifications</a></li>
+              <li class="nav-items"><a href="#"><i class="far fa-envelope"></i> Messages</a></li>
+              <li class="nav-items"><a href="#"><i class="far fa-list-alt"></i> Lists</a></li>
+              <li class="nav-items"><a href="#"><i class="far fa-bookmark"></i> Bookmarks</a></li>
+              <li class="nav-items"><a href="#"><i class="fas fa-users"></i> Communities</a></li>
+              <li class="nav-items"><a href="#"><i class="fas fa-star"></i> Premium</a></li>
+              <li class="nav-items"><a href="#"><i class="far fa-user"></i> Profile</a></li>
+              <li class="nav-items"><a href="#"><i class="fas fa-ellipsis-h"></i> More</a></li>
+            </ul>
+          </div>
+          <button type="button" class="btn btn-post">Post</button>
+        </div>
+        <!-- End Sidebar -->
+      </div>
+      <div class="profile-box">
+        <img src="/img/profile.jpg" alt="profile">
+        <div class="profile-link">
+          <p class="full-name">John Doe</p>
+          <p class="user-name">@john.doe</p>
+        </div>
+        <div class="options-icon"><i class="fas fa-caret-down"></i></div>
+      </div>
+    </div>
+    <div class="center-flex-container">
+      <div class="home">
+        <h1>Home</h1>
+        <div class="d-flex justify-content-around align-items-center flex-wrap">
+          <span class="px-2">For you</span>
+          <span class="px-2">Following</span>
+          <span class="px-2">TypeScript</span>
+          <span class="px-2">Design Systems <i class="fa-solid fa-chevron-right"></i></span>
+        </div>
+        <i class="fas fa-cog"></i>
+      </div>
+      <div class="post-tweet">
+        <form action="#">
+          <div class="form-group-1">
+            <img src="/img/profile.jpg" alt="User Pic">
+            <input type="text" placeholder="What's happening?">
+          </div>
+          <div class="form-group-2">
+            <div class="post-icons">
+              <i class="far fa-image"></i>
+              <i class="fas fa-video"></i>
+              <i class="far fa-chart-bar"></i>
+              <i class="fas fa-smile"></i>
+              <i class="fas fa-calendar-alt"></i>
+            </div>
+            <button type="submit" class="btn">Tweet</button>
+          </div>
+        </form>
+      </div>
+      <div class="tweets">
+        <div class="d-flex align-items-start mb-3">
+          <div class="user-pics">
+            <img src="/img/user1.jpg" alt="user1">
+          </div>
+          <div class="user-content-box ml-3">
+            <div class="user-names d-flex align-items-center">
+              <h5 class="full-name mb-0 mr-2">Eric Alvarez</h5>
+              <p class="user-name mb-0 text-muted">@eric_alvarez</p>
+              <p class="time mb-0 text-muted ml-2">· 2hrs</p>
+            </div>
+            <div class="user-content mt-2">
+              <p>Design, Prototype, Iterate! <a href="#">#UXDesign</a> <a href="#">#100DaysOfCode</a></p>
+              <img src="/img/uxdesign.jpg" alt="content1" class="img-fluid rounded">
+            </div>
+            <div class="content-icons d-flex justify-content-between mt-2">
+              <div>
+                <i class="far fa-comment mr-3"> 273</i>
+                <i class="fas fa-retweet mr-3"> 2k</i>
+                <i class="far fa-heart mr-3"> 3k</i>
+              </div>
+              <div class="dropdown">
+                <i class="fas fa-ellipsis-h options"></i>
+                <div class="dropdown-menu">
+                  <a href="#">Option 1</a>
+                  <a href="#">Option 2</a>
+                  <a href="#">Option 3</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tweets">
+        <div class="d-flex align-items-start mb-3">
+          <div class="user-pics">
+            <img src="/img/user3.jpg" alt="user2">
+          </div>
+          <div class="user-content-box ml-3">
+            <div class="user-names d-flex align-items-center">
+              <h5 class="full-name mb-0 mr-2">Carole Chavez</h5>
+              <p class="user-name mb-0 text-muted">@carolechavez</p>
+              <p class="time mb-0 text-muted ml-2">· 1hr</p>
+            </div>
+            <div class="user-content mt-2">
+              <p>If the whole world was blind, how many people would you impress? <a href="#">#100daysofcode</a> <a href="#">#javascript</a> <a href="#">#ReactDOM #BrowserRouter</a></p>
+              <img src="/img/content1.jpg" alt="content1" class="img-fluid rounded">
+            </div>
+            <div class="content-icons d-flex justify-content-between mt-2">
+              <div>
+                <i class="far fa-comment mr-3"> 2k</i>
+                <i class="fas fa-retweet mr-3"> 6k</i>
+                <i class="far fa-heart mr-3"> 10k</i>
+              </div>
+              <div class="dropdown">
+                <i class="fas fa-ellipsis-h options"></i>
+                <div class="dropdown-menu">
+                  <a href="#">Option 1</a>
+                  <a href="#">Option 2</a>
+                  <a href="#">Option 3</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="right-flex-container">
+      <div class="search-box">
+        <i class="fas fa-search"></i>
+        <input type="text" placeholder="Search Twitter">
+      </div>
+      <aside aria-label="Who to follow" class="bg-white p-3 rounded">
+        <h4 class="fw-bold mb-3">You might like</h4>
+        <ul class="list-unstyled">
+          <li class="mb-2">
+            <div class="user-card d-flex justify-content-between align-items-center p-2">
+              <div class="d-flex align-items-center">
+                <img src="https://pbs.twimg.com/profile_images/1780044485541699584/p78MCn3B_400x400.jpg" class="rounded-circle" width="50" height="50" alt="Elon Musk">
+                <div class="ms-2">
+                  <h6 class="fw-bold mb-0">Elon Musk <span class="text-primary">@elonmusk</span></h6>
+                  <img src="https://static.vecteezy.com/system/resources/previews/015/304/837/original/blue-verified-tick-valid-seal-icon-in-flat-style-design-isolated-on-white-background-validation-concept-vector.jpg" width="16" height="16" alt="Verified">
+                </div>
+              </div>
+              <button class="btn btn-outline-primary">Follow</button>
+            </div>
+          </li>
+          <li class="mb-2">
+            <div class="user-card d-flex justify-content-between align-items-center p-2">
+              <div class="d-flex align-items-center">
+                <img src="https://pbs.twimg.com/profile_images/1674815862879178752/nTGMV1Eo_400x400.jpg" class="rounded-circle" width="50" height="50" alt="Bill Gates">
+                <div class="ms-2">
+                  <h6 class="fw-bold mb-0">Bill Gates <span class="text-primary">@BillGates</span></h6>
+                  <img src="https://static.vecteezy.com/system/resources/previews/015/304/837/original/blue-verified-tick-valid-seal-icon-in-flat-style-design-isolated-on-white-background-validation-concept-vector.jpg" width="16" height="16" alt="Verified">
+                </div>
+              </div>
+              <button class="btn btn-outline-primary">Follow</button>
+            </div>
+          </li>
+          <li class="mb-2">
+            <div class="user-card d-flex justify-content-between align-items-center p-2">
+              <div class="d-flex align-items-center">
+                <img src="https://pbs.twimg.com/profile_images/1754606338460487681/bWupXdxo_400x400.jpg" class="rounded-circle" width="50" height="50" alt="Google">
+                <div class="ms-2">
+                  <h6 class="fw-bold mb-0">Google <span class="text-primary">@Google</span></h6>
+                  <img src="https://th.bing.com/th/id/OIP.obvXnVhdtCiwvmYZM4QnuQHaHa?rs=1&pid=ImgDetMain" width="16" height="16" alt="Verified">
+                </div>
+              </div>
+              <button class="btn btn-outline-primary">Follow</button>
+            </div>
+          </li>
+        </ul>
+        <div class="text-center mt-3">
+          <a href="#" class="text-primary">Show more</a>
+        </div>
+      </aside>
+      <div class="trends">
+        <ul>
+          <li class="nav-list header">
+            <h2>Trending Now</h2>
+            <i class="fas fa-cog"></i>
+          </li>
+          <div class="trend-list">
+            <div class="nav-list">
+              <p class="main-text">#Bootstrap</p>
+              <p>120k Tweets</p>
+            </div>
+            <div class="nav-list">
+              <p class="main-text">#HTML</p>
+              <p>100k Tweets</p>
+            </div>
+            <div class="nav-list">
+              <p class="main-text">#CSS</p>
+              <p>80k Tweets</p>
+            </div>
+            <div class="nav-list">
+              <p class="main-text">#JavaScript</p>
+              <p>70k Tweets</p>
+            </div>
+          </div>
+          <!-- More trends -->
+          <li class="nav-list"><a href="#">Show more</a></li>
+        </ul>
+      </div>
+      <div class="right-footer">
+        <div class="footer-links">
+          <a href="#" class="sub-text">Terms</a>
+          <a href="#" class="sub-text">Privacy policy</a>
+          <a href="#" class="sub-text">Ads info</a>
+          <a href="#" class="sub-text">more</a>
+          <i class="fas fa-chevron-down sub-text"></i>
+        </div>
+        <div class="footer-copyright">
+          <p class="sub-text">&copy; 2024 Twitter, Inc.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bottom-nav d-md-none">
+    <a href="#" class="nav-link active"><i class="fas fa-home"></i></a>
+    <a href="#" class="nav-link"><i class="fas fa-search"></i></a>
+    <a href="#" class="nav-link"><i class="fas fa-users"></i></a>
+    <a href="#" class="nav-link"><i class="far fa-bell"></i></a>
+    <a href="#" class="nav-link"><i class="far fa-envelope"></i></a>
+  </div>
+  <!-- Bootstrap JS (Optional) -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <!-- Custom JS -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var dropdowns = document.querySelectorAll('.options');
+      dropdowns.forEach(function (dropdown) {
+        dropdown.addEventListener('click', function (event) {
+          var dropdownMenu = this.nextElementSibling;
+          if (dropdownMenu.style.display === "block") {
+            dropdownMenu.style.display = "none";
+          } else {
+            dropdownMenu.style.display = "block";
+          }
+          event.stopPropagation();
+        });
+      });
+      window.addEventListener('click', function (event) {
+        var dropdowns = document.querySelectorAll('.dropdown-menu');
+        dropdowns.forEach(function (dropdownMenu) {
+          dropdownMenu.style.display = "none";
+        });
+      });
+    });
+  </script>
+</body>
+</html>
