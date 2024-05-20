@@ -1,5 +1,7 @@
 # Twitter Clone
 
+![Screenshot](https://github.com/Ousman37/twitter-clone/blob/main/Screenshot.jpg?raw=true)
+
 This project is a simple Twitter clone that demonstrates proficiency in HTML, CSS, and a bit of JavaScript. The project uses Bootstrap as a frontend framework for responsive design and layout.
 
 ## Table of Contents
@@ -12,6 +14,10 @@ This project is a simple Twitter clone that demonstrates proficiency in HTML, CS
 - [Screenshots](#screenshots)
 - [Contributing](#contributing)
 - [License](#license)
+
+## Demo
+
+Check out the live demo [here](https://your-demo-link.com) (replace with actual demo link).
 
 ## Features
 
@@ -40,29 +46,22 @@ This project is a simple Twitter clone that demonstrates proficiency in HTML, CS
  Open the project:
 Open the index.html file in your favorite web browser to view the project.
 
-## Usage
 
+## Usage
 Navigate through the left sidebar for different sections.
 Click on the three dots next to each tweet to see the dropdown menu.
 View the responsive design by resizing the browser window or opening it on a mobile device.
 
-
-
-Contributing
+## Contributing
 Contributions are welcome! Please fork this repository and submit a pull request for any improvements.
 
-### License
+License
 This project is licensed under the MIT License.
 
-
-
-### Notes:
-
+## Notes
 - Update the repository link in the setup section with the actual URL of your GitHub repository.
-- Add screenshots to the `screenshots` folder and update the paths in the `Screenshots` section.
-- Adjust the folder structure in the `Folder Structure` section if there are any changes.
+- Update the demo link in the demo section with the actual URL of your live demo.
 - Add more sections or details as needed based on the specific requirements and features of your project.
-
-This `README.md` file provides clear instructions and information about the project, helping others understand and use your Twitter clone.
+- This README.md file provides clear instructions and information about the project, helping others understand and use your Twitter clone.
 
 
