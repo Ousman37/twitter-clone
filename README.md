@@ -18,7 +18,7 @@ This project is a simple Twitter clone that demonstrates proficiency in HTML, CS
 
 ## Demo
 
-Check out the live demo [here](https://your-demo-link.com) (replace with actual demo link).
+Check out the live demo [here](https://velvety-pie-b773b3.netlify.app/) (replace with actual demo link).
 
 ## Features
 
