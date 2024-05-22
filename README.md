@@ -42,7 +42,7 @@ Check out the live demo [here](https://velvety-pie-b773b3.netlify.app/) (replace
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/your-username/twitter-clone.git
+   git clone git@github.com:Ousman37/twitter-clone.git
    cd twitter-clone
 
  Open the project:
