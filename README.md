@@ -1,69 +1,65 @@
-# Twitter Clone
+# Twitter-klone
 
-![Screenshot](https://github.com/Ousman37/twitter-clone/blob/main/screenshot.jpg?raw=true)
+![Skjermbilde](https://github.com/Ousman37/twitter-clone/blob/main/screenshot.jpg?raw=true)
 
-This project is a simple Twitter clone that demonstrates proficiency in HTML, CSS, and a bit of JavaScript. The project uses Bootstrap as a frontend framework for responsive design and layout.
+Dette prosjektet er en enkel kloning av Twitter som demonstrerer kompetanse i HTML, CSS og litt JavaScript. Prosjektet bruker Bootstrap som et frontend-rammeverk for responsivt design og layout.
 
-## Table of Contents
+## Innholdsfortegnelse
 
-- [Twitter Clone](#twitter-clone)
-  - [Table of Contents](#table-of-contents)
+- [Twitter-klone](#twitter-klone)
+  - [Innholdsfortegnelse](#innholdsfortegnelse)
   - [Demo](#demo)
-  - [Features](#features)
-  - [Technologies Used](#technologies-used)
-  - [Setup](#setup)
-  - [Usage](#usage)
-  - [Contributing](#contributing)
-  - [Notes](#notes)
+  - [Funksjoner](#funksjoner)
+  - [Brukte teknologier](#brukte-teknologier)
+  - [Oppsett](#oppsett)
+  - [Bruk](#bruk)
+  - [Bidra](#bidra)
+  - [Notater](#notater)
 
 ## Demo
 
-Check out the live demo [here](https://velvety-pie-b773b3.netlify.app/) (replace with actual demo link).
+Sjekk ut live-demoen [her](https://velvety-pie-b773b3.netlify.app/) (erstatt med faktisk demolenke).
 
-## Features
+## Funksjoner
 
-- **Responsive Design:** The layout adjusts for desktop and mobile screens.
-- **Tweets Display:** Two sample tweets, one containing an image.
-- **Hover Effects:** Links and buttons have hover effects.
-- **Dropdown Menu:** A functional dropdown menu appears when clicking on the three dots next to each tweet.
-- **Bootstrap Integration:** Utilizes Bootstrap for styling and responsive design.
-- **Font Awesome Icons:** Icons are used for navigation and tweet actions.
+- **Responsivt design:** Layouten justeres for skrivebord- og mobilskjermer.
+- **Visning av tweets:** To eksempeltweets, ett inneholder et bilde.
+- **Hover-effekter:** Lenker og knapper har hover-effekter.
+- **Dropdown-meny:** En funksjonell dropdown-meny vises når man klikker på de tre prikkene ved siden av hver tweet.
+- **Bootstrap-integrering:** Bruker Bootstrap for styling og responsivt design.
+- **Font Awesome-ikoner:** Ikoner brukes for navigering og tweet-handlinger.
 
-## Technologies Used
+## Brukte teknologier
 
-- **HTML:** Structure of the web pages.
-- **CSS:** Styling and layout.
-- **Bootstrap:** Frontend framework for responsive design.
-- **JavaScript:** For dropdown menu functionality.
-- **Font Awesome:** Icons for UI elements.
+- **HTML:** Struktur på nettsidene.
+- **CSS:** Styling og layout.
+- **Bootstrap:** Frontend-rammeverk for responsivt design.
+- **JavaScript:** For funksjonalitet i dropdown-menyer.
+- **Font Awesome:** Ikoner for brukerelementer.
 
-## Setup
+## Oppsett
 
-1. **Clone the repository:**
+1. **Klon repositoriet:**
 
    ```bash
    git clone git@github.com:Ousman37/twitter-clone.git
    cd twitter-clone
 
- Open the project:
-Open the index.html file in your favorite web browser to view the project.
 
-## Usage
+Åpne prosjektet:
+Åpne index.html-filen i din foretrukne nettleser for å se prosjektet.
 
-Navigate through the left sidebar for different sections.
-Click on the three dots next to each tweet to see the dropdown menu.
-View the responsive design by resizing the browser window or opening it on a mobile device.
+## Bruk
 
-## Contributing
+Naviger gjennom venstre sidemeny for ulike seksjoner.
+Klikk på de tre prikkene ved siden av hver tweet for å se dropdown-menyen.
+Se det responsive designet ved å endre størrelsen på nettleservinduet eller åpne det på en mobil enhet.
 
-Contributions are welcome! Please fork this repository and submit a pull request for any improvements.
+## Bidra
 
-License
-This project is licensed under the MIT License.
+Bidrag er velkomne! Vennligst fork dette repositoriet og send inn en pull request for eventuelle forbedringer.
 
-## Notes
+## Lisens
+Dette prosjektet er lisensiert under MIT-lisensen.
 
-- Update the repository link in the setup section with the actual URL of your GitHub repository.
-- Update the demo link in the demo section with the actual URL of your live demo.
-- Add more sections or details as needed based on the specific requirements and features of your project.
-- This README.md file provides clear instructions and information about the project, helping others understand and use your Twitter clone.
+
