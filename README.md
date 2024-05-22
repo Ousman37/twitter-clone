@@ -1,6 +1,6 @@
 # Twitter Clone
 
-![Screenshot](https://github.com/Ousman37/twitter-clone/blob/main/Screenshot.jpg?raw=true)
+![Screenshot](https://github.com/Ousman37/twitter-clone/blob/main/screenshot.jpg?raw=true)
 
 This project is a simple Twitter clone that demonstrates proficiency in HTML, CSS, and a bit of JavaScript. The project uses Bootstrap as a frontend framework for responsive design and layout.
 
